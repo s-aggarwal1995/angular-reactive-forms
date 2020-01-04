@@ -8,24 +8,17 @@ import {FormGroup, FormControl, FormControlName, Validators} from '@angular/form
 })
 export class AngularReactiveFormComponent implements OnInit {
 
-  createEmployeeForm:FormGroup;
+  
 
   constructor() { 
-    this.createEmployeeForm = new FormGroup({
-      email: new FormControl('',Validators.required),
-      password: new FormControl('',Validators.required)
-    })
   }
 
   ngOnInit() {
-    console.log(this.createEmployeeForm.touched);
-    console.log(this.createEmployeeForm.dirty);
+    
   }
 
   submit(){
-    console.log(this.createEmployeeForm);
-    console.log(this.createEmployeeForm.touched);
-    console.log(this.createEmployeeForm.dirty);
+   
   }
 
 }
