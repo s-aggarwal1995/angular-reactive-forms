@@ -1,0 +1,40 @@
+
+<label>Create Employee</label>
+<br>
+<br>
+
+<form [formGroup]="createEmployeeForm" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="fullName">Full Name</label>
+      <input formControlName="fullName" type="text" class="form-control" id="fullName">
+      <div class="alert alert-danger" *ngIf="createEmployeeForm.controls.fullName.errors?.required && createEmployeeForm.controls.fullName.touched">
+        fullName is required
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="email">email:</label>
+      <input formControlName="email" type="email" class="form-control" id="email">
+      <div class="alert alert-danger" *ngIf="createEmployeeForm.controls.email.errors?.required && createEmployeeForm.controls.email.touched">
+       password is required
+      </div>
+    </div>
+
+   
+
+    <div formGroupName="skills">
+        <label for="skill">skill</label>
+        <input formControlName="skillName" type="text" class="form-control" id="skillName">
+        <input formControlName="experience" type="text" class="form-control" id="experienceInYears">
+        <label>Profiency</label>
+
+        <input name="proficiency" formControlName="proficiency" type="radio" value="begineer">begineer
+        <input name="proficiency" formControlName="proficiency" type="radio" value="intermediate">Intermediate
+        <input name="proficiency" formControlName="proficiency" type="radio" value="expert">Expert
+       
+    </div>
+<button type="submit" class="btn btn-primary" [disabled]="!createEmployeeForm.valid">Submit</button>
+<button (click)="loadData()">load Data</button>
+</form>
+
+<p>{{createEmployeeForm.value | json}}</p>

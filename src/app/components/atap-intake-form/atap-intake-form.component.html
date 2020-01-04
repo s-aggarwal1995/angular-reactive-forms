@@ -1,0 +1,191 @@
+<p>Business Information</p>
+
+
+
+<form [formGroup]="atapIntakeForm" (ngSubmit)="onSubmit()">
+        
+    
+    
+    <label for="providerName">Provider Name</label>
+    <input class="form-control"
+    formControlName="providerName" required >
+
+    <div *ngIf="!atapIntakeForm.controls.providerName.valid && !atapIntakeForm.controls.providerName.pristine" class="alert alert-danger">
+            <span *ngIf="atapIntakeForm.controls.providerName.errors.required">
+              Provider Name is required
+            </span>
+    </div>
+
+
+
+
+    <label for="providerTelephoneNumber">Provider Telephone Number</label>
+    <input type="number"
+    formControlName="providerTelephoneNumber" required >
+
+    <div *ngIf="!atapIntakeForm.controls.providerTelephoneNumber.valid && !atapIntakeForm.controls.providerTelephoneNumber.pristine" class="alert alert-danger">
+            <span *ngIf="atapIntakeForm.controls.providerTelephoneNumber.errors.required">
+                provider TelephoneName is required
+            </span>
+            <span *ngIf="atapIntakeForm.controls.providerTelephoneNumber.errors.pattern">
+                    Incorrect phone Number
+             </span>
+             <span *ngIf="atapIntakeForm.controls.providerTelephoneNumber.errors.minLength">
+                    Length of the Number is smaller than the phone number
+             </span>
+    </div>
+
+
+    <label for="providerEmailAddress">Provider Email Address</label>
+    <input class="form-control"
+    formControlName="providerEmailAddress" required >
+
+    <div *ngIf="!atapIntakeForm.controls.providerEmailAddress.valid && !atapIntakeForm.controls.providerEmailAddress.pristine" class="alert alert-danger">
+            <span *ngIf="atapIntakeForm.controls.providerEmailAddress.errors.required">
+                provider Email Address is required
+            </span>
+            <span *ngIf="atapIntakeForm.controls.providerEmailAddress.errors.pattern && atapIntakeForm.controls.providerEmailAddress.touched">
+                    provider Email address has no correct format
+            </span>
+    </div>
+
+    <label for="directorFirstName">Director First Name</label>
+    <input class="form-control"
+    formControlName="directorFirstName">
+
+    <label for="diretorMiddleInitial">Director Middle Initial</label>
+    <input class="form-control"
+    formControlName="directorFirstName">
+
+    <label for="directorLastName">Director Last Name</label>
+    <input class="form-control"
+    formControlName="directorFirstName">
+
+    <label for="directorEmailAddress">Director Email Address</label>
+    <input class="form-control"
+    formControlName="directorEmailAddress" required >
+
+    <div *ngIf="!atapIntakeForm.controls.directorEmailAddress.valid && !atapIntakeForm.controls.directorEmailAddress.pristine">
+            
+            <span *ngIf="atapIntakeForm.controls.directorEmailAddress.errors.pattern && atapIntakeForm.controls.directorEmailAddress.touched">
+                    Director Email address has no correct format
+            </span>
+    </div>
+
+
+    <label for="federalIdNo">Federal Id No</label>
+    <input class="form-control"
+    formControlName="federalIdNo" type="number">
+
+    
+    <label for="address1">Address 1</label>
+    <input type="text" formControlName="address1">
+
+
+    <label for="address2">Address 2</label>
+    <input type="text" formControlName="address2">
+
+    
+    <label>city/Town</label>
+    <select formControlName="cityName">
+            <option value="" disabled>Choose your city</option>
+            <option *ngFor="let city of cities" [ngValue]="city.id">{{city.name}}</option>
+    </select>
+
+    <label>State Name</label>
+    <select formControlName="stateName">
+            <option value="" disabled>Choose your state</option>
+            <option *ngFor="let state of states" [ngValue]="state.id">{{state.name}}</option>
+    </select>
+
+    <label for="address2">Zip/Postal Code</label>
+    <input type="text" formControlName="zipCode">
+
+    <label>Country</label>
+    <select formControlName="country">
+        <option value="USA" [selected]="true">USA</option>
+    </select>
+
+    <label>Program Name</label>
+    <input type="text" formControlName="programName">
+
+    <label >ProgramType</label>
+    <label formArrayName="programTypes" *ngFor="let name of atapIntakeForm.controls.programTypes.controls; let i = index">
+            <input type="checkbox" [formControlName]="i">
+            {{programTypes[i].name}}
+    </label>
+
+    <label>Date</label>
+    <input type="date" formControlName="programName">
+
+    <label>Signature</label>
+    <label>
+    <input type="radio" value='yes' formControlName="signature" required>Yes</label>
+    <label>
+    <input type="radio" value='no' formControlName="signature" required>No</label>
+    <div *ngIf="!atapIntakeForm.controls.signature.valid && atapIntakeForm.controls.signature.touched">
+            One Radio button has to be selected
+    </div>
+
+    
+    
+            
+      
+       
+      
+    <button type="submit" [disabled]="!atapIntakeForm.valid">Submit</button>
+    <button type="reset" (click)="revert()">Revert</button>
+</form>
+
+
+
+
+
+
+<!-- 
+<p>
+<label>Document Name</label>
+<input type="text">
+</p>
+
+<p>
+<label>Document Type</label>
+<select (change)="onChange($event)">
+    <option disabled="disabled">Pick a choice!</option>
+    <option>Word</option>
+    <option>Excel</option>
+    <option>Pdf</option>
+</select>
+</p>
+
+
+<p>Attach Document</p>
+ 
+<p>
+<input type="file">
+</p>
+
+<p>
+<button>Confirm</button>
+<button>Scan</button>
+</p>
+
+
+<table>
+    <tr *ngFor= 'let document of documents'>
+       <td>{{document.id}}</td>
+       <td>{{document.doumentName}}</td>
+       <td>{{document.documentType}}</td>
+       <td>{{document.uploadedDate}}</td> 
+       <td>{{document.uploadedBy}}</td>
+       <td>Icons</td>
+    </tr>
+</table> -->  
+<!-- 
+<button type="submit">Submit</button> -->  
+
+<!-- <p>
+    Form Status: {{ profileForm.status }}
+</p> -->
+
+
