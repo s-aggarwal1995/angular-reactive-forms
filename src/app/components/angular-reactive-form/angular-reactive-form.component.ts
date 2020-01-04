@@ -8,17 +8,20 @@ import {FormGroup, FormControl, FormControlName, Validators} from '@angular/form
 })
 export class AngularReactiveFormComponent implements OnInit {
 
-  
+  employeeForm:FormGroup
 
   constructor() { 
   }
 
   ngOnInit() {
-    
+    this.employeeForm = new FormGroup({
+      userName: new FormControl('sanchit'),
+      email: new FormControl('')
+    })
   }
 
-  submit(){
-   
+  saveEmployee():void {
+   console.log("Save Employee Is Called" + JSON.stringify(this.employeeForm.value));
   }
 
 }
