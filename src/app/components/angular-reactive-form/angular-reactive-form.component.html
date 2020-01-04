@@ -13,3 +13,11 @@
 </div>
 
 </form>
+
+<p>
+    {{employeeForm.get('userName').touched}}
+  {{employeeForm.controls.userName.value}}
+  {{employeeForm.get('userName').dirty}}
+  {{employeeForm.get('userName').valid}}
+  {{employeeForm.touched | json}}
+</p>

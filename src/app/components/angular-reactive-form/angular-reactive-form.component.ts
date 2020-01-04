@@ -21,7 +21,9 @@ export class AngularReactiveFormComponent implements OnInit {
   }
 
   saveEmployee():void {
-   console.log("Save Employee Is Called" + JSON.stringify(this.employeeForm.value));
+   console.log(this.employeeForm);
+   // to access form control from a form group
+   console.log(this.employeeForm.controls.userName.value);
   }
 
 }
