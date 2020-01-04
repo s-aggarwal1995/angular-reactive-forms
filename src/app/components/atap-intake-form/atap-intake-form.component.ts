@@ -21,64 +21,7 @@ export class AtapIntakeFormComponent implements OnInit {
   
 
 
-  // documents:Array<Object> = [{id:1,documentName:"Atap",documentType:'Pdf',uploadedDate:'xyz',uploadedBy:'sanchit'},
-  // {id:2,documentName:'Enforcement',documentType:'Pdf',uploadedDate:'xyz',uploadedBy:'sanchit'}];
-
-  // atapIntakeForm = this.fb.group({
-  //   providerName: ['',Validators.required],
-  //   providerTelephoneNumber: ['',Validators.required],
-  //   providerEmailAddress:['',[Validators.required,Validators.email]],
-  //   directorFirstName:[''],
-  //   directorMiddleInitial:[''],
-  //   directorLastName:[''],
-  //   directorEmailAddress:[''],
-  //   federalIdNo:[''],
-  //   address1:[''],
-  //   Address2:[''],
-  //   cityTown:[''],
-  //   state: [''],
-  //   zipPostalCode:[''],
-  //   country:['USA'],
-  //   programName:[''],
-  //   programType:[''],
-  //   date:[''],
-  //   signature:[''],
-  //   documentName:[''],
-  //   documentType:[''],
-  //   attachDocument:[''],
-  //   confirm:[''],
-  //   scan:[''],
-  //   documentNo:[''],
-  //   documentsArray: this.fb.group({
-  //     documentId: [''],
-  //     documentName: [''],
-  //     documentType: [''],
-  //     uploadDate: [''],
-  //     uploadedBy:['']
-  //   }),
-  // });
-
   
-
-  
-
-  
-
-  
-
-  // get documents() {
-  //   return this.atapIntakeForm.get('documents') as FormArray;
-  // }
-
-  // addDocument() {
-  //   //this.documents.push({
-  //     //   documentId:this.fb.control(''),
-  //     //   documentName:this.fb.control(''),
-  //     //   uploadDate:this.fb.control(''),
-  //     //   uploadBy:this.fb.control('')
-  //     // });
-  // }
-
 
   atapIntakeForm: FormGroup;
 
