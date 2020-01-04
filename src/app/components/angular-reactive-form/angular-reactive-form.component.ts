@@ -15,15 +15,21 @@ export class AngularReactiveFormComponent implements OnInit {
 
   ngOnInit() {
     this.employeeForm = new FormGroup({
-      userName: new FormControl('sanchit'),
-      email: new FormControl('')
+      userName: new FormControl(),
+      email: new FormControl(''),
+      skill: new FormGroup({
+        skillName:new FormControl(),
+        experienceInYears: new FormControl(),
+        proficiency: new FormControl()
+      })
     })
   }
 
   saveEmployee():void {
-   console.log(this.employeeForm);
-   // to access form control from a form group
-   console.log(this.employeeForm.controls.userName.value);
+   console.log("to")
   }
 
 }
+
+// abstract control properties: value, dirty, touch, valid
+// abstract control properties: setValue, patchValue, reset, setValidators(), clearValidators(), updateValueAndValidity()

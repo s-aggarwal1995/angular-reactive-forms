@@ -8,16 +8,28 @@
 <label>Email</label>
 <input type="text" formControlName="email">
 
+
+<div>
+<button type="button" [disabled]="">Add A New Skill</button>
+</div>
+<div formGroupName="skill">
+<label>Skill</label>
+<div>
+<input type="text" placeholder="name" formControlName="skillName">
+<input type="text" placeholder="exerience in years" formControlName="experienceInYears">
+</div>
+
+<label>Proficiency</label>
+<input type="radio" name="proficiency" value="begineer" formControlName="proficiency">Begineer
+<input type="radio" name="proficiency" value="intermediate" formControlName="proficiency">Intermediate
+<input type="radio" name="proficiency" value="advanced" formControlName="proficiency">Advanced
+</div>
+
+
 <div>
 <button type="submit">Save</button>
 </div>
 
 </form>
 
-<p>
-    {{employeeForm.get('userName').touched}}
-  {{employeeForm.controls.userName.value}}
-  {{employeeForm.get('userName').dirty}}
-  {{employeeForm.get('userName').valid}}
-  {{employeeForm.touched | json}}
-</p>
+<p>{{employeeForm.value | json}}</p>
