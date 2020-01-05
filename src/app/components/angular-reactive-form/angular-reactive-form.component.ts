@@ -26,7 +26,19 @@ export class AngularReactiveFormComponent implements OnInit {
   }
 
   saveEmployee():void {
-   console.log("to")
+   console.log("to");
+  }
+
+  loadData(){
+    this.employeeForm.patchValue({
+      userName: 'sanchit',
+      email: 'sanchitaggarwal751@gmail.com',
+      skill: {
+        skillName:'I Dont Know',
+        experienceInYears: '5',
+        proficiency: 'begineer'
+      }
+    })
   }
 
 }
