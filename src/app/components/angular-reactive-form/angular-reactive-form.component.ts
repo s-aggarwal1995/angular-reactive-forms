@@ -24,7 +24,7 @@ export class AngularReactiveFormComponent implements OnInit {
     //   })
     // })
     this.employeeForm = this.fb.group({
-      userName: [''],
+      userName: ['',[Validators.required,Validators.minLength(2),Validators.maxLength(10)]],
       email: [''],
       skill: this.fb.group({
         skillName: [''],
@@ -32,10 +32,14 @@ export class AngularReactiveFormComponent implements OnInit {
         proficiency: ['begineer']
       })
     })
+
+    this.employeeForm.valueChanges.subscribe((value:any)=>{
+      console.log(value);
+    })
   }
 
   saveEmployee():void {
-   console.log("to");
+   console.log(this.employeeForm);
   }
 
   loadData(){
