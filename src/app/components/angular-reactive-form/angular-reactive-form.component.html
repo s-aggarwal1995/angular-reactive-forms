@@ -3,7 +3,21 @@
 
 <form [formGroup]="employeeForm" (ngSubmit)="saveEmployee()">
 <label>Full Name</label>
-<input type="text" formControlName="userName">
+<input type="text" formControlName="userName" [ngClass]="{'has-error':employeeForm.get('userName').errors &&
+ (employeeForm.get('userName').touched || employeeForm.get('userName').dirty)}">
+
+<span *ngIf="employeeForm.get('userName').errors &&
+(employeeForm.get('userName').touched || employeeForm.get('userName').dirty)">
+ <div *ngIf="employeeForm.get('userName').errors.required">
+   full name is required
+ </div>
+ <div *ngIf="employeeForm.get('userName').errors.minlength">
+    min length is 2 characters
+  </div>
+  <div *ngIf="employeeForm.get('userName').errors.maxlength">
+    max length is 10 characters
+  </div>
+</span>
 
 <label>Email</label>
 <input type="text" formControlName="email">
@@ -34,4 +48,4 @@
 
 </form>
 
-<p>{{employeeForm.value | json}}</p>
+<p>{{employeeForm.value | json}}  ,  {{employeeForm.valid}}</p>
