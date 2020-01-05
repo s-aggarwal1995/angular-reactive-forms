@@ -14,18 +14,9 @@ export class AngularReactiveFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.employeeForm = new FormGroup({
-    //   userName: new FormControl(),
-    //   email: new FormControl(''),
-    //   skill: new FormGroup({
-    //     skillName:new FormControl(),
-    //     experienceInYears: new FormControl(),
-    //     proficiency: new FormControl()
-    //   })
-    // })
     this.employeeForm = this.fb.group({
-      userName: ['',[Validators.required,Validators.minLength(2),Validators.maxLength(10)]],
-      email: [''],
+      userName: ['sanchit',[Validators.required,Validators.minLength(2),Validators.maxLength(10)]],
+      email: ['sanchit.aggarwal@svam.com'],
       skill: this.fb.group({
         skillName: [''],
         experienceInYears: [''],
@@ -33,9 +24,20 @@ export class AngularReactiveFormComponent implements OnInit {
       })
     })
 
-    this.employeeForm.valueChanges.subscribe((value:any)=>{
-      console.log(value);
-    })
+    this.logKeyValuePairs(this.employeeForm);
+  }
+
+  logKeyValuePairs(formGroup:FormGroup): void{
+    
+    Object.keys(formGroup.controls).forEach((key:any)=>{
+      const abstractControl = formGroup.get(key);
+      if(abstractControl instanceof FormGroup){
+        this.logKeyValuePairs(abstractControl);
+      }
+      else{
+        console.log(key + abstractControl.value);
+      }
+    });
   }
 
   saveEmployee():void {
